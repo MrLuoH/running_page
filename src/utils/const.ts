@@ -45,7 +45,7 @@ const IS_CHINESE = true;
 const USE_ANIMATION_FOR_GRID = false;
 const CHINESE_INFO_MESSAGE = (yearLength: number, year: string): string => {
   const yearStr = year === 'Total' ? '所有' : ` ${year} `;
-  return `我用 App 记录自己跑步 ${yearLength} 年了，下面列表展示的是${yearStr}的数据`;
+  return `我用 App 记录自己跑步 ${yearLength} 年了。跑步给我带来了巨大改变，让我重新审视了自己的内心世界：我可以自如地接受生活中的起起落落，接受内在与表面的差异，包括善变的我和真实的我。我要保持耐心去学习如何享受生活，不断努力的同时也不再对其他事情评头论足，这种改变让我受益匪浅。下面列表展示的是${yearStr}的数据`;
 };
 const ENGLISH_INFO_MESSAGE = (yearLength: number, year: string): string =>
   `Running Journey with ${yearLength} Years, the table shows year ${year} data`;
