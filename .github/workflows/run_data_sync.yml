@@ -1,7 +1,7 @@
 name: Run Data Sync
 
 on:
-  workflow_dispatch: 
+  workflow_dispatch:
   schedule:
     - cron: '0 0 * * *'
   push:
@@ -12,12 +12,12 @@ on:
       - run_page/nike_to_strava_sync.py
       - run_page/strava_sync.py
       - run_page/gen_svg.py
-      - run_page/garmin_sync.py 
+      - run_page/garmin_sync.py
       - run_page/keep_sync.py
       - run_page/gpx_sync.py
       - run_page/tcx_sync.py
       - run_page/garmin_to_strava_sync.py
-      - requirements.txt 
+      - requirements.txt
 
 env:
   # please change to your own config.
@@ -45,7 +45,7 @@ jobs:
     outputs:
       SAVE_DATA_IN_GITHUB_CACHE: ${{ steps.set_output.outputs.SAVE_DATA_IN_GITHUB_CACHE }}
       DATA_CACHE_PREFIX: ${{ steps.set_output.outputs.DATA_CACHE_PREFIX }}
-      BUILD_GH_PAGES: ${{ steps.set_output.outputs.BUILD_GH_PAGES }}
+      BUILD_GH_PAGES: ${{ steps.set_output.outputs.BUILD_GH_PAGES }} 
 
     steps:
       - name: Checkout
@@ -178,9 +178,9 @@ jobs:
         if: env.RUN_TYPE != 'pass'
         run: |
           python run_page/gen_svg.py --from-db --title "${{ env.TITLE }}" --type github --athlete "${{ env.ATHLETE }}" --special-distance 10 --special-distance2 20 --special-color yellow --special-color2 red --output assets/github.svg --use-localtime --min-distance 0.5
-          python run_page/gen_svg.py --from-db --title "${{ env.TITLE_GRID }}" --type grid --athlete "${{ env.ATHLETE }}" --output assets/grid.svg --special-color yellow --special-color2 red --special-distance 20 --special-distance2 40 --use-localtime --min-distance "${{ env.MIN_GRID_DISTANCE }}" 
+          python run_page/gen_svg.py --from-db --title "${{ env.TITLE_GRID }}" --type grid --athlete "${{ env.ATHLETE }}" --output assets/grid.svg --special-color yellow --special-color2 red --special-distance 20 --special-distance2 40 --use-localtime --min-distance "${{ env.MIN_GRID_DISTANCE }}"
           python run_page/gen_svg.py --from-db --type circular --use-localtime
-          python run_page/gen_svg.py --from-db --year $(date +"%Y")  --language zh_CN --title "$(date +"%Y") Running" --type github --athlete "${{ env.ATHLETE }}" --special-distance 10 --special-distance2 20 --special-color yellow --special-color2 red --output assets/github_$(date +"%Y").svg --use-localtime --min-distance 0.5
+          python run_page/gen_svg.py --from-db --year $(date +"%Y")  --language zh_CN --title "$(date +"%Y") Running" --type github --athlete "${{ env.ATHLETE }}" --special-distance 10 --special-distance2 20 --special-color yellow --special-color2 red --output assets/github_$(date +"%Y").svg --use-localtime --min-distance 0.5 
 
       - name: Push new runs
         if: env.SAVE_DATA_IN_GITHUB_CACHE != 'true'
@@ -204,6 +204,6 @@ jobs:
     uses: ./.github/workflows/gh-pages.yml
     with:
       save_data_in_github_cache: ${{needs.sync.outputs.SAVE_DATA_IN_GITHUB_CACHE == 'true'}}
-      data_cache_prefix: ${{needs.sync.outputs.DATA_CACHE_PREFIX}}
+      data_cache_prefix: ${{needs.sync.outputs.DATA_CACHE_PREFIX}} 
     needs:
       - sync
