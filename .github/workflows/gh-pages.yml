@@ -65,7 +65,7 @@ jobs:
             run_page/data.db
             src/static/activities.json
             imported.json
-          key: ${{ inputs.data_cache_prefix }}-${{ github.sha }}-${{ github.run_id }}
+          key: ${{ inputs.data_cache_prefix }}-${{ github.sha }}-${{ github.run_id }} 
           restore-keys: |
             ${{ inputs.data_cache_prefix }}-${{ github.sha }}-
             ${{ inputs.data_cache_prefix }}-
@@ -73,7 +73,7 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '20.x'
 
       - uses: pnpm/action-setup@v2
         name: Install pnpm
@@ -84,7 +84,7 @@ jobs:
       - name: Get pnpm store directory
         shell: bash
         run: |
-          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV 
 
       - uses: actions/cache@v4
         name: Setup pnpm cache
@@ -100,7 +100,7 @@ jobs:
         run: PATH_PREFIX=/${{ github.event.repository.name }} pnpm build
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v4
         with:
           # Upload dist repository
           path: './dist'
