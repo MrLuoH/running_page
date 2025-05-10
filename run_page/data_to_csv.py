@@ -2,7 +2,7 @@ import sqlite3
 
 try:
     import pandas as pd
-except Exception:
+except:
     raise Exception("please install pandas run: pip3 install pandas")
 from math import floor
 
