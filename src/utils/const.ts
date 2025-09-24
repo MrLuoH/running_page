@@ -1,6 +1,9 @@
-// src/utils/const.ts
-const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN;
-export default MAPBOX_TOKEN;
+// Constants
+const MAPBOX_TOKEN =
+  // For security reasons, please avoid using the default public token provided by Mapbox as much as possible.
+  // Instead, manually add a new token and apply URL restrictions.
+  // (please refer to https://github.com/yihong0618/running_page/issues/643#issuecomment-2042668580)
+  'pk.eyJ1IjoibHVveGlhbnNoZW5nIiwiYSI6ImNtZnc5MGFqcDA0ZjgybHM2b3F4ejY5b3EifQ.OwL2tKRjqVFp2T16GFI5iQ';
 
 const MUNICIPALITY_CITIES_ARR = [
   '北京市',
