@@ -1,33 +1,31 @@
-name: deploy
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches:
-      - master  # 或 main，根据你的默认分支修改
+      - master   # 如果你主分支叫 main，就改成 main
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
-      # 拉取仓库代码
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      # 安装 Node.js
-      - name: Use Node.js
-        uses: actions/setup-node@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: '18'
+          node-version: 18
 
-      # 安装依赖
-      - run: npm install
+      - name: Install dependencies
+        run: npm install
 
-      # 构建项目，注入 Mapbox token
       - name: Build project
         run: npm run build
         env:
           VITE_MAPBOX_TOKEN: ${{ secrets.VITE_MAPBOX_TOKEN }}
 
-      # 部署到 GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
