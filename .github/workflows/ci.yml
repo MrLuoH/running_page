@@ -7,22 +7,23 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
+        # 矩阵运行：会启动两个并行任务，分别测试 Python 3.9 和 3.10
         python-version: ['3.9', '3.10']
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Python  
+      - name: Set up Python  
         uses: actions/setup-python@v5
         with:
-        python-version: ${{ matrix.python-version }}
-        cache: pip   
-        cache-dependency-path: 'requirements.txt'
+          python-version: ${{ matrix.python-version }}
+          cache: 'pip' # 启用 pip 缓存
+          cache-dependency-path: 'requirements.txt'
 
-      - name: Install dependencies  
+      - name: Install dependencies  
         run: |
-          pip install --upgrade pip setuptools wheel    
-          pip install -r requirements.txt || true                         
+          python -m pip install --upgrade pip setuptools wheel    
+          pip install -r requirements.txt
 
       - name: Basic startup check
         run: |
@@ -38,9 +39,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          # 建议：Node 也可以开启缓存，加快 pnpm install 速度
+          # cache: 'pnpm' 
 
       - name: Enable pnpm
-        run: npm install -g corepack && corepack enable pnpm
+        run: corepack enable && corepack prepare pnpm@latest --activate
 
       - name: Install frontend deps
         run: pnpm install
