@@ -8,7 +8,7 @@ jobs:
     strategy:
       matrix:
         # 矩阵运行：会启动两个并行任务，分别测试 Python 3.9 和 3.10
-        python-version: ['3.9', '3.10']
+        python-version: ['3.12', '3.13', '3.14'] 
 
     steps:
       - uses: actions/checkout@v4
