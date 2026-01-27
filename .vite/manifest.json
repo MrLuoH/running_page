@@ -1,151 +1,160 @@
 {
-  "_activities-nNprgQmx.js": {
-    "file": "assets/activities-nNprgQmx.js",
+  "_activities-DGlJ5uSC.js": {
+    "file": "assets/activities-DGlJ5uSC.js",
     "name": "activities"
   },
-  "_vendors-D3T6pIKm.js": {
-    "file": "assets/vendors-D3T6pIKm.js",
+  "_vendors-DJtAcoR6.js": {
+    "file": "assets/vendors-DJtAcoR6.js",
     "name": "vendors",
     "isDynamicEntry": true
   },
   "assets/github.svg": {
-    "file": "assets/github.svg-Gy3IOtKD.js",
+    "file": "assets/github.svg-LkqcZ9gC.js",
     "name": "github.svg",
     "src": "assets/github.svg",
     "isDynamicEntry": true,
     "imports": [
-      "_vendors-D3T6pIKm.js"
+      "_vendors-DJtAcoR6.js"
     ]
   },
   "assets/grid.svg": {
-    "file": "assets/grid.svg--u7_1FdK.js",
+    "file": "assets/grid.svg-DMrkXq4B.js",
     "name": "grid.svg",
     "src": "assets/grid.svg",
     "isDynamicEntry": true,
     "imports": [
-      "_vendors-D3T6pIKm.js"
+      "_vendors-DJtAcoR6.js"
     ]
   },
   "assets/mol.svg": {
-    "file": "assets/mol.svg-BB4rjPzw.js",
+    "file": "assets/mol.svg-aBGPGMfx.js",
     "name": "mol.svg",
     "src": "assets/mol.svg",
     "isDynamicEntry": true,
     "imports": [
-      "_vendors-D3T6pIKm.js"
+      "_vendors-DJtAcoR6.js"
     ]
   },
   "assets/year_2015.svg": {
-    "file": "assets/year_2015-DslSRb3w.js",
+    "file": "assets/year_2015-DRxaTFIl.js",
     "name": "year_2015",
     "src": "assets/year_2015.svg",
     "isDynamicEntry": true,
     "imports": [
-      "_vendors-D3T6pIKm.js"
+      "_vendors-DJtAcoR6.js"
     ]
   },
   "assets/year_2016.svg": {
-    "file": "assets/year_2016-lYfccHkH.js",
+    "file": "assets/year_2016-CMGX0rXL.js",
     "name": "year_2016",
     "src": "assets/year_2016.svg",
     "isDynamicEntry": true,
     "imports": [
-      "_vendors-D3T6pIKm.js"
+      "_vendors-DJtAcoR6.js"
     ]
   },
   "assets/year_2017.svg": {
-    "file": "assets/year_2017-By7IhuMW.js",
+    "file": "assets/year_2017-C-my7vTc.js",
     "name": "year_2017",
     "src": "assets/year_2017.svg",
     "isDynamicEntry": true,
     "imports": [
-      "_vendors-D3T6pIKm.js"
+      "_vendors-DJtAcoR6.js"
     ]
   },
   "assets/year_2018.svg": {
-    "file": "assets/year_2018-DZs9YxoJ.js",
+    "file": "assets/year_2018-mlW0g0Ub.js",
     "name": "year_2018",
     "src": "assets/year_2018.svg",
     "isDynamicEntry": true,
     "imports": [
-      "_vendors-D3T6pIKm.js"
+      "_vendors-DJtAcoR6.js"
     ]
   },
   "assets/year_2019.svg": {
-    "file": "assets/year_2019-CcA8daN3.js",
+    "file": "assets/year_2019-BbR2QRIu.js",
     "name": "year_2019",
     "src": "assets/year_2019.svg",
     "isDynamicEntry": true,
     "imports": [
-      "_vendors-D3T6pIKm.js"
+      "_vendors-DJtAcoR6.js"
     ]
   },
   "assets/year_2020.svg": {
-    "file": "assets/year_2020-B8rNetq2.js",
+    "file": "assets/year_2020-BzFw4P_O.js",
     "name": "year_2020",
     "src": "assets/year_2020.svg",
     "isDynamicEntry": true,
     "imports": [
-      "_vendors-D3T6pIKm.js"
+      "_vendors-DJtAcoR6.js"
     ]
   },
   "assets/year_2021.svg": {
-    "file": "assets/year_2021-BskfnBaw.js",
+    "file": "assets/year_2021-tLrhMIe1.js",
     "name": "year_2021",
     "src": "assets/year_2021.svg",
     "isDynamicEntry": true,
     "imports": [
-      "_vendors-D3T6pIKm.js"
+      "_vendors-DJtAcoR6.js"
     ]
   },
   "assets/year_2022.svg": {
-    "file": "assets/year_2022-DUIpbrAw.js",
+    "file": "assets/year_2022-BYnW3PR-.js",
     "name": "year_2022",
     "src": "assets/year_2022.svg",
     "isDynamicEntry": true,
     "imports": [
-      "_vendors-D3T6pIKm.js"
+      "_vendors-DJtAcoR6.js"
     ]
   },
   "assets/year_2023.svg": {
-    "file": "assets/year_2023-uVkyKtJT.js",
+    "file": "assets/year_2023-DCb6iA_y.js",
     "name": "year_2023",
     "src": "assets/year_2023.svg",
     "isDynamicEntry": true,
     "imports": [
-      "_vendors-D3T6pIKm.js"
+      "_vendors-DJtAcoR6.js"
     ]
   },
   "assets/year_2024.svg": {
-    "file": "assets/year_2024-DObgbCkG.js",
+    "file": "assets/year_2024-D1e67qai.js",
     "name": "year_2024",
     "src": "assets/year_2024.svg",
     "isDynamicEntry": true,
     "imports": [
-      "_vendors-D3T6pIKm.js"
+      "_vendors-DJtAcoR6.js"
     ]
   },
   "assets/year_2025.svg": {
-    "file": "assets/year_2025-DRn6oHyR.js",
+    "file": "assets/year_2025-DqzsBJv_.js",
     "name": "year_2025",
     "src": "assets/year_2025.svg",
     "isDynamicEntry": true,
     "imports": [
-      "_vendors-D3T6pIKm.js"
+      "_vendors-DJtAcoR6.js"
+    ]
+  },
+  "assets/year_2026.svg": {
+    "file": "assets/year_2026-D_-t9hNn.js",
+    "name": "year_2026",
+    "src": "assets/year_2026.svg",
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendors-DJtAcoR6.js"
     ]
   },
   "index.html": {
-    "file": "assets/index-CDLjT9vn.js",
+    "file": "assets/index-B2V-lQ8F.js",
     "name": "index",
     "src": "index.html",
     "isEntry": true,
     "imports": [
-      "_vendors-D3T6pIKm.js",
-      "_activities-nNprgQmx.js"
+      "_vendors-DJtAcoR6.js",
+      "_activities-DGlJ5uSC.js"
     ],
     "dynamicImports": [
       "src/static/run_countries.ts",
-      "_vendors-D3T6pIKm.js",
+      "_vendors-DJtAcoR6.js",
       "assets/year_2015.svg",
       "assets/year_2016.svg",
       "assets/year_2017.svg",
@@ -157,23 +166,24 @@
       "assets/year_2023.svg",
       "assets/year_2024.svg",
       "assets/year_2025.svg",
+      "assets/year_2026.svg",
       "assets/github.svg",
       "assets/grid.svg",
       "assets/mol.svg"
     ],
     "css": [
-      "assets/index-MThqWM-s.css"
+      "assets/index-Bw6igcwh.css"
     ]
   },
   "src/static/run_countries.ts": {
-    "file": "assets/run_countries-Wi98UNLF.js",
+    "file": "assets/run_countries-DKfXgpq7.js",
     "name": "run_countries",
     "src": "src/static/run_countries.ts",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_vendors-D3T6pIKm.js",
-      "_activities-nNprgQmx.js"
+      "_vendors-DJtAcoR6.js",
+      "_activities-DGlJ5uSC.js"
     ]
   }
 }
