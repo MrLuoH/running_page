@@ -59,6 +59,7 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: true
+          ref: my-feature
 
       - name: Set up Python
         id: setup_python
