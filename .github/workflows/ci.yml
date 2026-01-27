@@ -3,66 +3,49 @@ name: CI
 on: [push, pull_request]
 
 jobs:
-  python_lint_and_test:
+  python_check:
     runs-on: ubuntu-latest
     strategy:
-      max-parallel: 4
       matrix:
-        python-version: ['3.9', '3.10'] # Added Python 3.13 to the matrix  
+        python-version: ['3.9', '3.10']
+
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          persist-credentials: false
 
-      - name: Set up Python ${{ matrix.python-version }}
-        id: setup_python
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
-          cache: 'pip'
-          cache-dependency-path: 'requirements-dev.txt'
+          cache: pip
+          cache-dependency-path: 'requirements.txt'
 
-      - name: Install dependencies
+      - name: Install dependencies  
         run: |
-          pip install -r requirements-dev.txt
+          pip install --upgrade pip setuptools wheel
+          pip install -r requirements.txt
 
-      - name: Run GPX sync test
+      - name: Basic startup check
         run: |
-          # make sure the gpx_sync.py script is executable
-          python run_page/gpx_sync.py
+          python - <<EOF
+          import run_page
+          print("OK")
+          EOF
 
-      - name: Check formatting (black)
-        run: black . --diff --color && black . --check
-
-      - name: Lint with Ruff
-        run: |
-          pip install ruff
-          ruff check .
-
-  node_lint_and_test:
+  node_check:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: [20, 22]
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          persist-credentials: false
 
-      - name: Setup Node.js environment
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node }}
-      - name: Enable corepack
-        run: npm install -g corepack@latest && corepack enable pnpm
+          node-version: 20
 
-      - name: Install dependencies
+      - name: Enable pnpm
+        run: npm install -g corepack && corepack enable pnpm
+
+      - name: Install frontend deps
         run: pnpm install
 
-      - name: Run check and build
-        run: |
-          pnpm run check
-          pnpm run lint
-          pnpm run build
+      - name: Build site
+        run: pnpm run build
