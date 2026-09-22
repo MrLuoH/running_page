@@ -1,5 +1,5 @@
-import math
 import datetime
+import math
 
 import svgwrite
 
@@ -41,7 +41,7 @@ class MonthOfLifeDrawer(TracksDrawer):
                 self.birth_month = int(parts[1])
                 if not (1 <= self.birth_month <= 12):
                     raise ValueError
-            except Exception:
+            except Exception:  # noqa: BLE001
                 raise PosterError("Invalid birth date format, must be YYYY-MM")
 
     def draw(self, dr: svgwrite.Drawing, size: XY, offset: XY):
@@ -73,8 +73,8 @@ class MonthOfLifeDrawer(TracksDrawer):
             cx = offset.x + spacing_x * x_idx + spacing_x / 2
             cy = offset.y + spacing_y * y_idx + spacing_y / 2
 
-            current_date = datetime.datetime.now()
-            month_date = datetime.datetime(y, m, 1)
+            current_date = datetime.datetime.now()  # noqa: DTZ005
+            month_date = datetime.datetime(y, m, 1)  # noqa: DTZ001
             is_past = month_date < current_date
 
             color = "gray" if is_past else "#444444"
@@ -84,16 +84,16 @@ class MonthOfLifeDrawer(TracksDrawer):
                 # Set color based on special distance ranges and generate gradients or use special colors
                 sd1 = self.poster.special_distance["special_distance"]
                 sd2 = self.poster.special_distance["special_distance2"]
-                dist_km = dist / 1000
-                if sd1 < dist_km < sd2:
+                dist_units = self.poster.m2u(dist)
+                if sd1 < dist_units < sd2:
                     color = self.color(self.poster.length_range_by_date, dist, True)
-                elif dist_km >= sd2:
+                elif dist_units >= sd2:
                     color = self.poster.colors.get(
                         "special2"
                     ) or self.poster.colors.get("special")
                 else:
                     color = self.color(self.poster.length_range_by_date, dist, False)
-                val = format_float(self.poster.m2u(dist))
+                val = format_float(dist_units)
                 title = f"{title} {val} {self.poster.u()}"
             circle = dr.circle(center=(cx, cy), r=radius, fill=color)
             circle.set_desc(title=title)

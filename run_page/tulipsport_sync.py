@@ -1,15 +1,18 @@
+#!/usr/bin/env python3
 import argparse
 import json
 import os
 from collections import namedtuple
 from datetime import datetime, timedelta, timezone
 from urllib.parse import quote
+from xml.etree import ElementTree
+
 import gpxpy
 import polyline
 import requests
 from config import GPX_FOLDER, JSON_FILE, SQL_FILE, run_map, start_point
 from generator import Generator
-from xml.etree import ElementTree
+
 from utils import adjust_time_to_utc
 
 # need to test
@@ -133,6 +136,7 @@ def merge_summary_and_detail_to_nametuple(summary, detail):
         "average_speed": average_speed,
         "elevation_gain": elevation_gain,
         "location_country": location_country,
+        "subtype": "Run",
     }
     return namedtuple("activity_db_instance", activity_db_instance.keys())(
         *activity_db_instance.values()
@@ -142,8 +146,8 @@ def merge_summary_and_detail_to_nametuple(summary, detail):
 def compute_elevation_gain(altitudes):
     total_gain = 0
     for i in range(1, len(altitudes)):
-        if altitudes[i] > altitudes[i - 1]:
-            total_gain += altitudes[i] - altitudes[i - 1]
+        if float(altitudes[i]) > float(altitudes[i - 1]):
+            total_gain += float(altitudes[i]) - float(altitudes[i - 1])
     return total_gain
 
 
@@ -189,7 +193,11 @@ def get_new_activities(token, old_tracks_ids, with_gpx=False):
             tracks.append(track)
             if with_gpx and activity_summary["id"] not in old_gpx_ids:
                 save_activity_gpx(activity_summary, activity_detail, track)
-        except Exception as e:
+        except Exception as e:  # noqa: BLE001
+            # print traceback.format_exc()
+            import traceback
+
+            traceback.print_exc()
             print(f"Something wrong parsing tulipsport id {activity_id} " + str(e))
     return tracks
 
@@ -240,13 +248,12 @@ def save_activity_gpx(summary, detail, track):
 
     activity_id = summary["id"]
     try:
-        print(f"saving tulipsport activity {str(activity_id)} gpx")
+        print(f"saving tulipsport activity {activity_id!s} gpx")
         file_path = os.path.join(GPX_FOLDER, str(activity_id) + ".gpx")
         with open(file_path, "w") as fb:
             fb.write(gpx.to_xml())
-    except Exception as e:
-        print(f"saving tulipsport activity {activity_id} gpx occurs errors: {str(e)}")
-        pass
+    except Exception as e:  # noqa: BLE001
+        print(f"saving tulipsport activity {activity_id} gpx occurs errors: {e!s}")
 
 
 # 郁金香运动的活动 ID 采用 UUID 模式，而 DB 主键使用 long 类型，无法有效存储，所以采用构造个人唯一的活动 ID
