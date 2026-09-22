@@ -319,7 +319,8 @@ if (typeof window !== 'undefined') {
 
   if (
     ['mapbox', 'maptiler', 'stadiamaps'].includes(MAP_TILE_VENDOR) &&
-    MAP_TILE_ACCESS_TOKEN === ''
+    MAP_TILE_ACCESS_TOKEN === '' &&
+    MAPBOX_TOKEN === ''
   ) {
     console.error(
       `❌ ${MAP_TILE_VENDOR.toUpperCase()} requires an access token!\n` +
