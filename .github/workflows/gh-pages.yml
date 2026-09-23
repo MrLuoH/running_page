@@ -22,6 +22,9 @@ on:
         required: true
         type: string
         default: track_data
+    secrets:
+      MAPBOX_TOKEN:
+        required: true     
 
 # Allow one concurrent deployment
 concurrency:
