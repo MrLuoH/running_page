@@ -37,7 +37,7 @@ goals:
     unit: distance
 
   Run:
-    yearly: 2000
-    monthly: 150
-    weekly: 35
+    yearly: 1440
+    monthly: 120
+    weekly: 30
     unit: distance
